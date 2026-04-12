@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Bhardwaj — Assistant Professor of Finance, Tulane University</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --text: #2C2C2C;
+            --text-light: #5A5A5A;
+            --bg: #FDFAF6;
+            --bg-alt: #F5F0E8;
+            --accent: #1B6B6D;
+            --accent-light: #238688;
+            --accent-faint: rgba(27, 107, 109, 0.08);
+            --rust: #A0522D;
+            --rust-light: #C4713E;
+            --green: #2E7D32;
+            --green-light: #E8F5E9;
+            --amber: #E65100;
+            --amber-light: #FFF3E0;
+            --blue: #1565C0;
+            --blue-light: #E3F2FD;
+            --border: rgba(44, 44, 44, 0.1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+            --radius: 6px;
+            --max-width: 860px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(253, 250, 246, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+
+        .nav-name {
+            font-family: 'Bitter', serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.4rem 0.75rem;
+            border-radius: var(--radius);
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            background: var(--accent-faint);
+        }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            margin: 4px 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* ── Hero Section ── */
+        .hero {
+            padding: 7.5rem 2rem 4rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-photo {
+            position: relative;
+        }
+
+        .hero-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+
+        .hero-photo::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            opacity: 0.2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Bitter', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title {
+            font-size: 1.05rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .hero-title a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .hero-bio {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.75;
+            max-width: 520px;
+        }
+
+        .hero-bio strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .hero-quick-links {
+            margin-top: 1.25rem;
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-quick-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.35rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .hero-quick-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-faint);
+        }
+
+        .hero-quick-links svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        /* ── Divider ── */
+        .section-divider {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-divider hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+        }
+
+        /* ── Content Sections ── */
+        .content-section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 3.5rem 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Bitter', serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        .section-header .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .section-count {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-light);
+            background: var(--bg-alt);
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+        }
+
+        /* ── Paper Cards ── */
+        .paper {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .paper.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .paper:last-child {
+            border-bottom: none;
+        }
+
+        .paper-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .paper-title {
+            font-family: 'Bitter', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.45;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .badge-rr {
+            background: var(--amber-light);
+            color: var(--amber);
+        }
+
+        .badge-accepted {
+            background: var(--green-light);
+            color: var(--green);
+        }
+
+        .badge-published {
+            background: var(--blue-light);
+            color: var(--blue);
+        }
+
+        .paper-meta {
+            margin-top: 0.35rem;
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .paper-meta .coauthors {
+            color: var(--text-light);
+        }
+
+        .paper-meta .venue {
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* ── Publication list ── */
+        .publication {
+            padding: 1.1rem 0;
+            border-bottom: 1px solid var(--border);
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .publication.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-family: 'Bitter', serif;
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.45;
+        }
+
+        .pub-meta {
+            margin-top: 0.3rem;
+            font-size: 0.88rem;
+            color: var(--text-light);
+        }
+
+        .pub-journal {
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        /* ── Teaching ── */
+        .teaching-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .teaching-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .teaching-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .teaching-card:hover {
+            box-shadow: var(--shadow-sm);
+            border-color: rgba(27, 107, 109, 0.2);
+        }
+
+        .teaching-course {
+            font-family: 'Bitter', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .teaching-detail {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        .teaching-institution {
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        /* ── Contact Section ── */
+        .contact-section {
+            background: var(--bg-alt);
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 3.5rem 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .contact-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+            color: var(--accent);
+        }
+
+        .contact-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .contact-label {
+            font-size: 0.78rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            margin-bottom: 0.15rem;
+        }
+
+        .contact-value {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .contact-value a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .contact-value a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Reveal animation helpers ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 700px) {
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .hero-photo {
+                display: flex;
+                justify-content: center;
+            }
+
+            .hero-photo img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .hero-bio {
+                max-width: none;
+            }
+
+            .hero-quick-links {
+                justify-content: center;
+            }
+
+            .hero-text h1 {
+                font-size: 1.75rem;
+            }
+
+            .content-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 56px;
+                left: 0;
+                right: 0;
+                background: rgba(253, 250, 246, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 0.5rem 1rem 1rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-hamburger {
+                display: block;
+            }
+
+            .paper-top {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+
+            .badge {
+                align-self: flex-start;
+            }
+        }
+
+        /* ── Print styles ── */
+        @media print {
+            nav, .hero-photo::after { display: none; }
+            .hero { padding-top: 2rem; }
+            .paper, .publication, .teaching-card, .contact-item, .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#top" class="nav-name">Abhishek Bhardwaj</a>
+        <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="#research">Research</a>
+            <a href="#publications">Publications</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="top">
+    <div class="hero-grid">
+        <div class="hero-photo reveal">
+            <img src="photo.jpg" alt="Abhishek Bhardwaj">
+        </div>
+        <div class="hero-text reveal">
+            <h1>Abhishek Bhardwaj</h1>
+            <div class="hero-title">
+                Assistant Professor of Finance<br>
+                <a href="https://freeman.tulane.edu/" target="_blank" rel="noopener">A.&thinsp;B. Freeman School of Business, Tulane University</a>
+            </div>
+            <p class="hero-bio">
+                I am a finance academic with a Ph.D. from <strong>NYU Stern School of Business</strong>. My research spans <strong>financial intermediation</strong>, <strong>corporate finance</strong>, and <strong>household finance</strong> &mdash; with a particular focus on how securitization, banking relationships, and labor markets shape economic outcomes.
+            </p>
+            <div class="hero-quick-links">
+                <a href="mailto:abhardwaj@tulane.edu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    Email
+                </a>
+                <a href="tel:+19292152434">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    (929) 215-2434
+                </a>
+                <a href="#contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Office
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Working Papers -->
+<section class="content-section" id="research">
+    <div class="section-header reveal">
+        <h2>Working Papers</h2>
+        <span class="section-line"></span>
+        <span class="section-count">8 papers</span>
+    </div>
+
+    <div class="paper">
+        <div class="paper-top">
+            <span class="paper-title">Loan Securitization and Non-Bank Investor Exposure</span>
+            <span class="badge badge-rr">R&amp;R</span>
+        </div>
+        <div class="paper-meta">
+            <span class="coauthors">with Ge &amp; Mukherjee</span>
+            &ensp;&middot;&ensp;
+            <span class="venue">Journal of Finance</span>
+        </div>
+    </div>
+
+    <div class="paper">
+        <div class="paper-top">
+            <span class="paper-title">Climate Impact on Employment via Heat Shocks</span>
+            <span class="badge badge-accepted">Conditionally Accepted</span>
+        </div>
+        <div class="paper-meta">
+            <span class="coauthors">with Acharya &amp; Tomunen</span>
+            &ensp;&middot;&ensp;
+            <span class="venue">Review of Financial Studies</span>
+        </div>
+    </div>
+
+    <div class="paper">
+        <div class="paper-top">
+            <span class="paper-title">Labor Substitution and Retail Pricing</span>
+            <span class="badge badge-accepted">Conditionally Accepted</span>
+        </div>
+        <div class="paper-meta">
+            <span class="coauthors">with Ghose, Mukherjee &amp; Singh</span>
+            &ensp;&middot;&ensp;
+            <span class="venue">JPE Macroeconomics</span>
+        </div>
+    </div>
+
+    <div class="paper">
+        <div class="paper-top">
+            <span class="paper-title">Bank Lending to Non-Banks and Systemic Risk</span>
+        </div>
+        <div class="paper-meta">
+            <span class="coauthors">with Javadekar</span>
+        </div>
+    </div>
+
+    <div class="paper">
+        <div class="paper-top">
+            <span class="paper-title">Private Equity Fund Size Effects</span>
+        </div>
+        <div class="paper-meta">
+            <span class="coauthors">with Gupta, Howell &amp; Zimmerschied</span>
+        </div>
+    </div>
+
+    <div class="paper">
+        <div class="paper-top">
+            <span class="paper-title">Leveraged Payouts in PE Transactions</span>
+        </div>
+        <div class="paper-meta">
+            <span class="coauthors">with Gupta &amp; Howell</span>
+        </div>
+    </div>
+
+    <div class="paper">
+        <div class="paper-top">
+            <span class="paper-title">Securitization and Lending Relationships</span>
+        </div>
+        <div class="paper-meta">
+            <span class="coauthors">with Mukherjee</span>
+        </div>
+    </div>
+
+    <div class="paper">
+        <div class="paper-top">
+            <span class="paper-title">Inside Debt in CLO Structures</span>
+        </div>
+        <div class="paper-meta">
+            <span class="coauthors">with John &amp; Mukherjee</span>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Publications -->
+<section class="content-section" id="publications">
+    <div class="section-header reveal">
+        <h2>Publications</h2>
+        <span class="section-line"></span>
+        <span class="section-count">2 articles</span>
+    </div>
+
+    <div class="publication">
+        <div class="paper-top">
+            <span class="pub-title">Government Stimulus and Household Externalities</span>
+            <span class="badge badge-published">Published</span>
+        </div>
+        <div class="pub-meta">
+            <span class="coauthors">with Mukherjee</span>
+            &ensp;&middot;&ensp;
+            <span class="pub-journal">Journal of Financial and Quantitative Analysis</span>, 2023
+        </div>
+    </div>
+
+    <div class="publication">
+        <div class="paper-top">
+            <span class="pub-title">Relationship Banking and Monetary Transmission</span>
+            <span class="badge badge-published">Published</span>
+        </div>
+        <div class="pub-meta">
+            <span class="coauthors">with Subramanian &amp; Tantri</span>
+            &ensp;&middot;&ensp;
+            <span class="pub-journal">Journal of Money, Credit and Banking</span>, 2022
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- Teaching -->
+<section class="content-section" id="teaching">
+    <div class="section-header reveal">
+        <h2>Teaching</h2>
+        <span class="section-line"></span>
+    </div>
+
+    <div class="teaching-grid">
+        <div class="teaching-card">
+            <div class="teaching-course">Financial Management</div>
+            <div class="teaching-detail">
+                <span class="teaching-institution">Tulane University</span> &ensp;&middot;&ensp; Fall 2022, Spring 2023
+            </div>
+        </div>
+        <div class="teaching-card">
+            <div class="teaching-course">Foundations of Finance</div>
+            <div class="teaching-detail">
+                <span class="teaching-institution">NYU Stern School of Business</span> &ensp;&middot;&ensp; Summer 2019
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="contact-section" id="contact">
+    <div class="contact-inner">
+        <div class="section-header reveal">
+            <h2>Contact</h2>
+            <span class="section-line"></span>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value"><a href="mailto:abhardwaj@tulane.edu">abhardwaj@tulane.edu</a></div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value"><a href="tel:+19292152434">(929) 215-2434</a></div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label">Office</div>
+                    <div class="contact-value">GWBC 350F, 7 McAlister Dr<br>New Orleans, LA 70118</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div>
+                    <div class="contact-label">Education</div>
+                    <div class="contact-value">Ph.D. in Finance<br>NYU Stern School of Business</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Abhishek Bhardwaj
+</footer>
+
+<script>
+(function() {
+    // ── Navbar scroll effect ──
+    const nav = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // ── Close mobile menu on link click ──
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.remove('open');
+        });
+    });
+
+    // ── Scroll reveal with IntersectionObserver ──
+    const revealElements = document.querySelectorAll('.reveal, .paper, .publication, .teaching-card, .contact-item');
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry, i) {
+                if (entry.isIntersecting) {
+                    // Stagger siblings
+                    const parent = entry.target.parentElement;
+                    const siblings = Array.from(parent.children).filter(function(el) {
+                        return revealElements instanceof NodeList ?
+                            Array.prototype.indexOf.call(revealElements, el) !== -1 : false;
+                    });
+                    const index = siblings.indexOf(entry.target);
+                    const delay = index >= 0 ? index * 60 : 0;
+
+                    setTimeout(function() {
+                        entry.target.classList.add('revealed');
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+            observer.observe(el);
+        });
+    } else {
+        // Fallback: show everything
+        revealElements.forEach(function(el) {
+            el.classList.add('revealed');
+        });
+    }
+})();
+</script>
+
+</body>
+</html>
