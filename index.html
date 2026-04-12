@@ -149,6 +149,7 @@
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
+            object-position: center center;
             border: 4px solid white;
             box-shadow: var(--shadow-lg);
             display: block;
@@ -316,12 +317,18 @@
 
         .paper-title {
             font-family: 'Bitter', serif;
-            font-size: 1.05rem;
+            font-size: 0.97rem;
             font-weight: 600;
             color: var(--text);
             line-height: 1.45;
             flex: 1;
             min-width: 250px;
+            text-decoration: none;
+            text-wrap: pretty;
+        }
+
+        a.paper-title:hover {
+            color: var(--accent);
         }
 
         .badge {
@@ -394,6 +401,11 @@
             font-weight: 600;
             color: var(--text);
             line-height: 1.45;
+            text-decoration: none;
+        }
+
+        a.pub-title:hover {
+            color: var(--accent);
         }
 
         .pub-meta {
@@ -657,7 +669,7 @@
 <section class="hero" id="top">
     <div class="hero-grid">
         <div class="hero-photo reveal">
-            <img src="photo.jpg" alt="Abhishek Bhardwaj">
+            <img src="photo_web.jpg" alt="Abhishek Bhardwaj">
         </div>
         <div class="hero-text reveal">
             <h1>Abhishek Bhardwaj</h1>
@@ -666,7 +678,7 @@
                 <a href="https://freeman.tulane.edu/" target="_blank" rel="noopener">A.&thinsp;B. Freeman School of Business, Tulane University</a>
             </div>
             <p class="hero-bio">
-                I am a finance academic with a Ph.D. from <strong>NYU Stern School of Business</strong>. My research spans <strong>financial intermediation</strong>, <strong>corporate finance</strong>, and <strong>household finance</strong> &mdash; with a particular focus on how securitization, banking relationships, and labor markets shape economic outcomes.
+                I am a financial economist with a Ph.D. from NYU Stern School of Business. My research examines how financial institutions shape credit allocation, risk transmission, and economic outcomes. I focus on banking, private equity, and non-bank finance, as well as how firms adapt to climate change and natural disasters.
             </p>
             <div class="hero-quick-links">
                 <a href="mailto:abhardwaj@tulane.edu">
@@ -698,82 +710,82 @@
 
     <div class="paper">
         <div class="paper-top">
-            <span class="paper-title">Loan Securitization and Non-Bank Investor Exposure</span>
+            <a class="paper-title" href="https://www.nber.org/papers/w33449" target="_blank" rel="noopener">Does Loan Securitization Expose Borrowers to Non-Bank Investor Shocks? &mdash; Evidence from Insurers</a>
             <span class="badge badge-rr">R&amp;R</span>
         </div>
         <div class="paper-meta">
-            <span class="coauthors">with Ge &amp; Mukherjee</span>
+            <span class="coauthors">with Shan Ge &amp; Saptarshi Mukherjee</span>
             &ensp;&middot;&ensp;
-            <span class="venue">Journal of Finance</span>
+            <span class="venue">The Journal of Finance</span>
         </div>
     </div>
 
     <div class="paper">
         <div class="paper-top">
-            <span class="paper-title">Climate Impact on Employment via Heat Shocks</span>
+            <a class="paper-title" href="https://ssrn.com/abstract=4660007" target="_blank" rel="noopener">Do Firms Mitigate Climate Impact on Employment? Evidence from US Heat Shocks</a>
             <span class="badge badge-accepted">Conditionally Accepted</span>
         </div>
         <div class="paper-meta">
-            <span class="coauthors">with Acharya &amp; Tomunen</span>
+            <span class="coauthors">with Viral Acharya &amp; Tuomas Tomunen</span>
             &ensp;&middot;&ensp;
-            <span class="venue">Review of Financial Studies</span>
+            <span class="venue">The Review of Financial Studies</span>
         </div>
     </div>
 
     <div class="paper">
         <div class="paper-top">
-            <span class="paper-title">Labor Substitution and Retail Pricing</span>
+            <a class="paper-title" href="https://drive.google.com/file/d/14osslj7pUweR0zsI_r_8Ef05ALyqm3ud/view?usp=sharing" target="_blank" rel="noopener">Labor Shopping Substitution and Retail Prices: Evidence from Plant Openings</a>
             <span class="badge badge-accepted">Conditionally Accepted</span>
         </div>
         <div class="paper-meta">
-            <span class="coauthors">with Ghose, Mukherjee &amp; Singh</span>
+            <span class="coauthors">with Devaki Ghose, Saptarshi Mukherjee &amp; Manpreet Singh</span>
             &ensp;&middot;&ensp;
-            <span class="venue">JPE Macroeconomics</span>
+            <span class="venue">Journal of Political Economy Macroeconomics</span>
         </div>
     </div>
 
     <div class="paper">
         <div class="paper-top">
-            <span class="paper-title">Bank Lending to Non-Banks and Systemic Risk</span>
+            <a class="paper-title" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4946216" target="_blank" rel="noopener">How Does Bank Lending to Non-Banks Affect Credit Allocation and Systemic Risk</a>
         </div>
         <div class="paper-meta">
-            <span class="coauthors">with Javadekar</span>
+            <span class="coauthors">with Apoorva Javadekar</span>
         </div>
     </div>
 
     <div class="paper">
         <div class="paper-top">
-            <span class="paper-title">Private Equity Fund Size Effects</span>
+            <a class="paper-title" href="https://www.nber.org/papers/w33596" target="_blank" rel="noopener">Does Fund Size Affect Private Equity Performance? Evidence from Donation Inflows to Private Universities</a>
         </div>
         <div class="paper-meta">
-            <span class="coauthors">with Gupta, Howell &amp; Zimmerschied</span>
+            <span class="coauthors">with Abhinav Gupta, Sabrina Howell &amp; Kyle Zimmerschied</span>
         </div>
     </div>
 
     <div class="paper">
         <div class="paper-top">
-            <span class="paper-title">Leveraged Payouts in PE Transactions</span>
+            <a class="paper-title" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5113626" target="_blank" rel="noopener">Capital Structure &amp; Firm Outcomes: Evidence from Dividend Recapitalizations in Private Equity</a>
         </div>
         <div class="paper-meta">
-            <span class="coauthors">with Gupta &amp; Howell</span>
+            <span class="coauthors">with Abhinav Gupta &amp; Sabrina Howell</span>
         </div>
     </div>
 
     <div class="paper">
         <div class="paper-top">
-            <span class="paper-title">Securitization and Lending Relationships</span>
+            <a class="paper-title" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4360620" target="_blank" rel="noopener">Do Lending Relationships Matter When Loans Are Securitized?</a>
         </div>
         <div class="paper-meta">
-            <span class="coauthors">with Mukherjee</span>
+            <span class="coauthors">with Saptarshi Mukherjee</span>
         </div>
     </div>
 
     <div class="paper">
         <div class="paper-top">
-            <span class="paper-title">Inside Debt in CLO Structures</span>
+            <a class="paper-title" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3952358" target="_blank" rel="noopener">Inside Debt in Financial Intermediation: Evidence from CLOs</a>
         </div>
         <div class="paper-meta">
-            <span class="coauthors">with John &amp; Mukherjee</span>
+            <span class="coauthors">with Kose John &amp; Saptarshi Mukherjee</span>
         </div>
     </div>
 </section>
@@ -790,11 +802,10 @@
 
     <div class="publication">
         <div class="paper-top">
-            <span class="pub-title">Government Stimulus and Household Externalities</span>
-            <span class="badge badge-published">Published</span>
+            <a class="pub-title" href="https://jfqa.org/2023/12/21/government-investment-stimulus-and-household-balancea-sheet-externalities/" target="_blank" rel="noopener">Government Investment Stimulus and Household Balance Sheet Externalities</a>
         </div>
         <div class="pub-meta">
-            <span class="coauthors">with Mukherjee</span>
+            <span class="coauthors">with Saptarshi Mukherjee</span>
             &ensp;&middot;&ensp;
             <span class="pub-journal">Journal of Financial and Quantitative Analysis</span>, 2023
         </div>
@@ -802,11 +813,10 @@
 
     <div class="publication">
         <div class="paper-top">
-            <span class="pub-title">Relationship Banking and Monetary Transmission</span>
-            <span class="badge badge-published">Published</span>
+            <a class="pub-title" href="https://onlinelibrary.wiley.com/doi/full/10.1111/jmcb.12905" target="_blank" rel="noopener">Relationship Banking and Monetary Policy Transmission</a>
         </div>
         <div class="pub-meta">
-            <span class="coauthors">with Subramanian &amp; Tantri</span>
+            <span class="coauthors">with Krishnamurthy Subramanian &amp; Prasanna Tantri</span>
             &ensp;&middot;&ensp;
             <span class="pub-journal">Journal of Money, Credit and Banking</span>, 2022
         </div>
@@ -826,13 +836,19 @@
         <div class="teaching-card">
             <div class="teaching-course">Financial Management</div>
             <div class="teaching-detail">
-                <span class="teaching-institution">Tulane University</span> &ensp;&middot;&ensp; Fall 2022, Spring 2023
+                <span class="teaching-institution">Tulane University</span> &ensp;&middot;&ensp; Undergraduate &ensp;&middot;&ensp; Fall 2022, Spring 2023&ndash;2026
+            </div>
+        </div>
+        <div class="teaching-card">
+            <div class="teaching-course">Managerial Finance</div>
+            <div class="teaching-detail">
+                <span class="teaching-institution">Tulane University</span> &ensp;&middot;&ensp; Graduate &ensp;&middot;&ensp; Spring 2026
             </div>
         </div>
         <div class="teaching-card">
             <div class="teaching-course">Foundations of Finance</div>
             <div class="teaching-detail">
-                <span class="teaching-institution">NYU Stern School of Business</span> &ensp;&middot;&ensp; Summer 2019
+                <span class="teaching-institution">NYU Stern School of Business</span> &ensp;&middot;&ensp; Undergraduate &ensp;&middot;&ensp; Summer 2019
             </div>
         </div>
     </div>
@@ -871,7 +887,7 @@
                 </div>
                 <div>
                     <div class="contact-label">Office</div>
-                    <div class="contact-value">GWBC 350F, 7 McAlister Dr<br>New Orleans, LA 70118</div>
+                    <div class="contact-value">GWBC 350C, 7 McAlister Dr<br>New Orleans, LA 70118</div>
                 </div>
             </div>
             <div class="contact-item">
